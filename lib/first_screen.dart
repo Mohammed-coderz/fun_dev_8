@@ -14,54 +14,55 @@ class _FirstScreenState extends State<FirstScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("mohammed sameer"),
+        title: Text("welcome to our app"),
         centerTitle: true,
         backgroundColor: Colors.blue,
       ),
-      body: Center(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 50),
-          child: Column(
-            children: [
-              TextField(
-                decoration: InputDecoration(
-                  hintText: "please fill your email",
-                  label: Text("Email"),
-                  prefixIcon: Icon(Icons.email),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  helperText: "email@example.com",
+      body: Container(
+        decoration: BoxDecoration(color: Colors.red),
+        child: Center(
+          child: Card(
+            color: Colors.yellow,
+            child: SizedBox(
+              height: 350,
+              width: 350,
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [Text("welcome to our app")],
+                    ),
+                    Divider(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [Text("data"), Text("data")],
+                    ),
+                    Divider(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        SizedBox(
+                          width: 100,
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-              SizedBox(height: 25),
-              TextField(
-                obscureText: isPassword,
-                decoration: InputDecoration(
-                  hintText: "please fill your password",
-                  label: Text("Password"),
-                  prefixIcon: Icon(Icons.password),
-                  suffix: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        isPassword = !isPassword;
-                      });
-                      print(isPassword);
-                    },
-                    icon: isPassword
-                        ? Icon(Icons.visibility)
-                        : Icon(Icons.visibility_off),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  helperText: "Aa@12345",
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),
+      backgroundColor: Colors.yellow,
     );
   }
 }
