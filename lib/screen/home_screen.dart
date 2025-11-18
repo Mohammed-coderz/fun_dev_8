@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fun_dev_8/screen/items_screen.dart';
+import 'package:fun_dev_8/screen/list_view_screen.dart';
 import 'package:fun_dev_8/screen/login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -11,8 +13,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 1;
   List<Widget> screens = [
-    Text("home"), // 0
-    Text("profile"), // 1
+    ListViewScreen(), // 0
+    ItemsScreen(), // 1
     Text("setting"), // 2
     Text("logout"), // 3
   ];
