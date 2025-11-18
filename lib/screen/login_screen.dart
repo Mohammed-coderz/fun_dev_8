@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fun_dev_8/signup.dart';
+import 'package:fun_dev_8/screen/home_screen.dart';
+import 'package:fun_dev_8/screen/signup.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -60,7 +61,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: 25),
                   ElevatedButton(
                     onPressed: () {
-                      print("login pressed");
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
                     },
                     child: Text("Login"),
                   ),
