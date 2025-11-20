@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fun_dev_8/screen/gridview_screen.dart';
 import 'package:fun_dev_8/screen/items_screen.dart';
 import 'package:fun_dev_8/screen/list_view_screen.dart';
 import 'package:fun_dev_8/screen/login_screen.dart';
@@ -15,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> screens = [
     ListViewScreen(), // 0
     ItemsScreen(), // 1
-    Text("setting"), // 2
+    GridviewScreen(), // 2
     Text("logout"), // 3
   ];
 
