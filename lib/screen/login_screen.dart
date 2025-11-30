@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fun_dev_8/screen/signup.dart';
 
 import '../core/utils/shared_preferences_helper.dart';
+import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -12,6 +13,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   bool isChecked = false;
 
   @override
@@ -60,6 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: height * 0.01),
                   TextField(
+                    controller: emailController,
                     decoration: InputDecoration(
                       labelText: "Email".tr(),
                       hintText: "EnterEِmail".tr(),
@@ -71,6 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: height * 0.01),
                   TextField(
+                    controller: emailController,
                     decoration: InputDecoration(
                       labelText: "Password",
                       hintText: "enter your password",
@@ -97,31 +102,31 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                   SizedBox(height: height * 0.01),
-                  ElevatedButton(
-                    onPressed: () async {
-                      // final SharedPreferences prefs =
-                      //     await SharedPreferences.getInstance();
-
-                      print("ischecked : $isChecked");
-
-                      // final bool? mohammed = prefs.getBool('isRememberMe');
-                      final bool? isRememberMe =
-                          await SharedPreferencesHelper.getBool('isRememberMe');
-
-                      print("isRememberMe : $isRememberMe");
-                    },
-                    child: Text("check SharedPreferences"),
-                  ),
+                  // ElevatedButton(
+                  //   onPressed: () async {
+                  //     // final SharedPreferences prefs =
+                  //     //     await SharedPreferences.getInstance();
+                  //
+                  //     print("ischecked : $isChecked");
+                  //
+                  //     // final bool? mohammed = prefs.getBool('isRememberMe');
+                  //     final bool? isRememberMe =
+                  //         await SharedPreferencesHelper.getBool('isRememberMe');
+                  //
+                  //     print("isRememberMe : $isRememberMe");
+                  //   },
+                  //   child: Text("check SharedPreferences"),
+                  // ),
                   ElevatedButton(
                     onPressed: () async {
                       await SharedPreferencesHelper.saveBool(
                         'isRememberMe',
                         isChecked,
                       );
-                      // Navigator.pushReplacement(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => HomeScreen()),
-                      // );
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
                     },
                     child: Text("Login"),
                   ),

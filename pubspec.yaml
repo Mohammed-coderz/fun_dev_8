@@ -33,6 +33,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   shared_preferences: ^2.5.3
   easy_localization: ^3.0.8
+  sqflite: ^2.4.2
 
 dev_dependencies:
   flutter_test:
@@ -80,7 +81,7 @@ flutter:
       #     fonts:
       #       - asset: fonts/Schyler-Regular.ttf
       #       - asset: fonts/Schyler-Italic.ttf
-      #         style: italic
+    #         style: italic
     #   - family: Trajan Pro
     #     fonts:
     #       - asset: fonts/TrajanPro.ttf

@@ -15,7 +15,6 @@ class _ListViewScreenState extends State<ListViewScreen> {
     PersonsModel(name: "ahmed", age: 25, gender: "male"),
     PersonsModel(name: "ali", age: 26, gender: "male"),
   ];
-
   List<String> names = ["mohammed", "ahmed", "ali", "mohammed", "ahmed", "ali"];
 
   @override

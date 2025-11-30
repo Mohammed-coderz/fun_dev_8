@@ -3,6 +3,7 @@ import 'package:fun_dev_8/screen/gridview_screen.dart';
 import 'package:fun_dev_8/screen/items_screen.dart';
 import 'package:fun_dev_8/screen/list_view_screen.dart';
 import 'package:fun_dev_8/screen/login_screen.dart';
+import 'package:fun_dev_8/screen/notes_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,16 +15,16 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 1;
   List<Widget> screens = [
-    ListViewScreen(), // 0
-    ItemsScreen(), // 1
-    GridviewScreen(), // 2
-    Text("logout"), // 3
+    ListViewScreen(),
+    ItemsScreen(),
+    GridviewScreen(),
+    NotesScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      // appBar: AppBar(),
       drawer: Drawer(
         child: ListView(
           children: [
@@ -73,17 +74,22 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: "home",
-            backgroundColor: Colors.blue,
+            backgroundColor: Colors.deepPurple,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: "profile",
-            backgroundColor: Colors.red,
+            backgroundColor: Colors.deepPurple,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: "setting",
-            backgroundColor: Colors.yellow,
+            backgroundColor: Colors.deepPurple,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.note_add),
+            label: "notes",
+            backgroundColor: Colors.deepPurple,
           ),
           // BottomNavigationBarItem(
           //   icon: Icon(Icons.abc),
@@ -92,12 +98,12 @@ class _HomeScreenState extends State<HomeScreen> {
           // ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
-        },
-        child: Text("data"),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     // Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+      //   },
+      //   child: Text("data"),
+      // ),
     );
   }
 }
