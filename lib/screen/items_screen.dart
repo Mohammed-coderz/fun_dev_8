@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../model/items_model.dart';
@@ -13,6 +14,7 @@ class _ItemsScreenState extends State<ItemsScreen> {
   List<ItemsModel> items = [
     ItemsModel(
       itemName: "apple",
+      itemNameAr: "تفاح",
       itemDescription: "red apple",
       itemImage:
           "https://cdn.pixabay.com/photo/2016/09/29/08/33/apple-1702316_1280.jpg",
@@ -36,6 +38,8 @@ class _ItemsScreenState extends State<ItemsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var lang = context.locale.languageCode;
+
     return Scaffold(
       body: ListView.separated(
         itemCount: items.length,
@@ -66,7 +70,11 @@ class _ItemsScreenState extends State<ItemsScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text("name :"),
-                        Text(items[index].itemName ?? "-"),
+                        Text(
+                          lang == 'ar'
+                              ? items[index].itemNameAr ?? "-"
+                              : items[index].itemName ?? "-",
+                        ),
                       ],
                     ),
                     SizedBox(height: 20),

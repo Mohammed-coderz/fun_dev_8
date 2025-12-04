@@ -16,6 +16,13 @@ class _SignupScreenState extends State<SignupScreen> {
         title: Text("signup screen"),
         centerTitle: true,
         backgroundColor: Colors.green,
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.backspace),
+        ),
       ),
       body: Center(
         child: Card(

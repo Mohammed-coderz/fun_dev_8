@@ -7,9 +7,10 @@ class NotesDatabase {
 
   factory NotesDatabase() => _instance;
 
-  static Database? _database;
-
   NotesDatabase._internal();
+
+  /// database instance
+  Database? _database;
 
   /// method [get database if exists if not create new one]
   Future<Database> get database async {

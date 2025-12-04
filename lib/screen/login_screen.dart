@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fun_dev_8/screen/signup.dart';
+import 'package:fun_dev_8/screen/widget/custom_text_field.dart';
 
 import '../core/utils/shared_preferences_helper.dart';
 import 'home_screen.dart';
@@ -137,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Text("don't have account ?"),
                       TextButton(
                         onPressed: () {
-                          Navigator.pushReplacement(
+                          Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => SignupScreen(),
