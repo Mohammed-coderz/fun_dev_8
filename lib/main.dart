@@ -1,19 +1,25 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:fun_dev_8/screen/get_api_screen.dart';
+import 'package:provider/provider.dart';
 
-import 'screen/login_screen.dart';
+import 'feature/login/provider/login_provider.dart';
+import 'feature/login/view/login_screen.dart';
+import 'feature/splash_screen/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 
   runApp(
-    EasyLocalization(
-      supportedLocales: [Locale('en'), Locale('ar')],
-      path: 'assets/translations',
-      fallbackLocale: Locale('en'),
-      child: MyApp(),
+    ChangeNotifierProvider(
+      create: (context) => LoginProvider(),
+      child: EasyLocalization(
+        supportedLocales: [Locale('en'), Locale('ar')],
+        path: 'assets/translations',
+        fallbackLocale: Locale('en'),
+        child: MyApp(),
+      ),
     ),
   );
 }
@@ -31,7 +37,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow),
       ),
-      home: LoginScreen(),
+      home: SplashScreen(),
     );
   }
 }

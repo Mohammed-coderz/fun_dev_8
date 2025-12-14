@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fun_dev_8/screen/gridview_screen.dart';
 import 'package:fun_dev_8/screen/items_screen.dart';
 import 'package:fun_dev_8/screen/list_view_screen.dart';
-import 'package:fun_dev_8/screen/login_screen.dart';
+import 'package:fun_dev_8/feature/login/view/login_screen.dart';
 import 'package:fun_dev_8/screen/notes_screen.dart';
 
 class HomeScreen extends StatefulWidget {

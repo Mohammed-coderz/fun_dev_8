@@ -1,12 +1,10 @@
-import 'dart:convert';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:fun_dev_8/screen/signup.dart';
-import 'package:http/http.dart' as http;
+import 'package:fun_dev_8/screen/home_screen.dart';
+import 'package:fun_dev_8/feature/signup/view/signup.dart';
+import 'package:provider/provider.dart';
 
-import '../core/utils/shared_preferences_helper.dart';
-import 'home_screen.dart';
+import '../provider/login_provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -20,47 +18,11 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
   bool isChecked = false;
 
-  Login() async {
-    /// url for get data from api
-    final url = Uri.parse(
-      "https://6917554ec172.ngrok-free.app/ECOMMERCE/auth/login.php",
-    );
-
-    /// response for get data from api
-    final response = await http.post(
-      url,
-      body: json.encode({
-        "phone": emailController.text,
-        "password": passwordController.text,
-      }),
-    );
-
-    print("response status code =>  ${response.statusCode}");
-    print("response body =>  ${response.body}");
-
-    /// check if response is success
-    /// if success save data in data list
-    if (response.statusCode == 200) {
-      /// print response body
-      print("response body => ${response.body}");
-
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => HomeScreen()),
-      );
-    } else {
-      /// print error message
-      print("error => ${response.statusCode}");
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("phone number or password is wrong")),
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+    final provider = context.watch<LoginProvider>();
     return Scaffold(
       appBar: AppBar(
         title: Text("LoginScreen".tr()),
@@ -142,35 +104,29 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                   SizedBox(height: height * 0.01),
-                  // ElevatedButton(
-                  //   onPressed: () async {
-                  //     // final SharedPreferences prefs =
-                  //     //     await SharedPreferences.getInstance();
-                  //
-                  //     print("ischecked : $isChecked");
-                  //
-                  //     // final bool? mohammed = prefs.getBool('isRememberMe');
-                  //     final bool? isRememberMe =
-                  //         await SharedPreferencesHelper.getBool('isRememberMe');
-                  //
-                  //     print("isRememberMe : $isRememberMe");
-                  //   },
-                  //   child: Text("check SharedPreferences"),
-                  // ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      // await SharedPreferencesHelper.saveBool(
-                      //   'isRememberMe',
-                      //   isChecked,
-                      // );
-                      Login();
-                      // Navigator.pushReplacement(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => HomeScreen()),
-                      // );
-                    },
-                    child: Text("Login"),
-                  ),
+
+                  /// todo login provider
+                  provider.isLoading
+                      ? CircularProgressIndicator()
+                      : ElevatedButton(
+                          onPressed: () async {
+                            await provider.loginMethod(
+                              email: emailController.text,
+                              password: passwordController.text,
+                            );
+                            if (provider.login!.result == true) {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomeScreen(),
+                                ),
+                              );
+                            }
+                          },
+                          child: Text("Login"),
+                        ),
+
+                  ///
                   SizedBox(height: height * 0.01),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
