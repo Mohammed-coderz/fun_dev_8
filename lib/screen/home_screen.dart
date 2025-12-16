@@ -5,6 +5,8 @@ import 'package:fun_dev_8/screen/list_view_screen.dart';
 import 'package:fun_dev_8/feature/login/view/login_screen.dart';
 import 'package:fun_dev_8/screen/notes_screen.dart';
 
+import '../feature/login2/view/login_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 

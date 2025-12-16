@@ -1,10 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:fun_dev_8/screen/get_api_screen.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'feature/login/provider/login_provider.dart';
-import 'feature/login/view/login_screen.dart';
+import 'feature/login/cubit/login_cubit.dart';
 import 'feature/splash_screen/splash_screen.dart';
 
 Future<void> main() async {
@@ -12,8 +10,8 @@ Future<void> main() async {
   await EasyLocalization.ensureInitialized();
 
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => LoginProvider(),
+    MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => LoginCubit())],
       child: EasyLocalization(
         supportedLocales: [Locale('en'), Locale('ar')],
         path: 'assets/translations',

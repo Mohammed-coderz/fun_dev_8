@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:fun_dev_8/feature/login/view/login_screen.dart';
 import 'package:http/http.dart' as http;
 
+import '../../login2/view/login_screen.dart';
+
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
 
