@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'feature/login/cubit/login_cubit.dart';
+import 'feature/map/google_map_screen.dart';
 import 'feature/splash_screen/splash_screen.dart';
 
 Future<void> main() async {
@@ -35,7 +36,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow),
       ),
-      home: SplashScreen(),
+      home: GoogleMapScreen(),
     );
   }
 }
+
+/// AIzaSyAJTQ446C_TALaVVa9lvDOJmFrWjKXG0FQ
+/// AIzaSyABP1bUKKxOEvezHu76iYVk8Bq457gYPi8
