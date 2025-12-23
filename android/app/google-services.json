@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "826020700776",
+    "project_id": "fun-dev-8",
+    "storage_bucket": "fun-dev-8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826020700776:android:c7fe55f3826a2e888f51dd",
+        "android_client_info": {
+          "package_name": "com.coderz.fun_dev_8"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKrCx2RiNsF4ZiYiO2ck69B3z5Kglf4aI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
